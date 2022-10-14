@@ -6,6 +6,9 @@
 # checks if menu is disabled
 execute if entity @s[scores={FormatName=1..20}] if score #disable_menu nfs_dummy matches 1 run tellraw @s ["",{"text":"[ Name Formatting Menu disabled.","color":"red"},{"text":" ]","color":"red"}]
 execute if entity @s[scores={FormatName=1..20}] if score #disable_menu nfs_dummy matches 1 run scoreboard players set @s FormatName 99
+# check if book is disabled
+execute if entity @s[scores={FormatName=700..707}] if score #enable_book nfs_dummy matches 0 run tellraw @s {"text":"[ Book functions disabled! ]","color":"red"}
+execute if entity @s[scores={FormatName=700..707}] if score #enable_book nfs_dummy matches 0 run scoreboard players set @s FormatName 99
 # checks for book in mainhand and offhand
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run tellraw @s {"text":"[ Cannot format NFS books! ]","color":"red"}
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run scoreboard players set @s FormatName 99
@@ -47,11 +50,24 @@ execute unless data entity @s[scores={FormatName=602..603}] SelectedItem.tag.dis
 execute if entity @s[scores={FormatName=700..707},predicate=!name_formatting:mainhand_book] run tellraw @s {"text":"[ Cannot use without book! ]","color":"red"}
 execute if entity @s[scores={FormatName=700..707},predicate=!name_formatting:mainhand_book] run scoreboard players set @s FormatName 99
 # name check with book
-execute if entity @s[scores={FormatName=700..701}] unless data entity @s Inventory[{Slot:-106b}].tag.display.Name run tellraw @s {"text":"[ Requires named item in offhand! ]","color":"red"}
-execute if entity @s[scores={FormatName=700..701}] unless data entity @s Inventory[{Slot:-106b}].tag.display.Name run scoreboard players set @s FormatName 99
+execute if entity @s[scores={FormatName=701..702}] unless data entity @s Inventory[{Slot:-106b}].tag.display.Name run tellraw @s {"text":"[ Requires named item in offhand! ]","color":"red"}
+execute if entity @s[scores={FormatName=701..702}] unless data entity @s Inventory[{Slot:-106b}].tag.display.Name run scoreboard players set @s FormatName 99
 # checks if there's an item in offhand
-execute if entity @s[scores={FormatName=702..707}] unless data entity @s Inventory[{Slot:-106b}] run tellraw @s {"text":"[ Requires item in offhand! ]","color":"red"}
-execute if entity @s[scores={FormatName=702..707}] unless data entity @s Inventory[{Slot:-106b}] run scoreboard players set @s FormatName 99
+execute if entity @s[scores={FormatName=703..707}] unless data entity @s Inventory[{Slot:-106b}] run tellraw @s {"text":"[ Requires item in offhand! ]","color":"red"}
+execute if entity @s[scores={FormatName=703..707}] unless data entity @s Inventory[{Slot:-106b}] run scoreboard players set @s FormatName 99
+# checks character max
+execute if entity @s[scores={FormatName=701..702}] run scoreboard players set #size1 nfs_dummy 0
+execute if entity @s[scores={FormatName=701..702}] run scoreboard players set #size2 nfs_dummy 0
+execute if entity @s[scores={FormatName=701..702}] store result score #size1 nfs_dummy run data get entity @s SelectedItem.tag.display.Lore[1]
+execute if entity @s[scores={FormatName=701..702}] store result score #size2 nfs_dummy run data get entity @s Inventory[{Slot:-106b}].tag.display.Name
+execute if entity @s[scores={FormatName=701..702}] run scoreboard players operation #size1 nfs_dummy += #size2 nfs_dummy
+execute if entity @s[scores={FormatName=701..702}] if score #size1 nfs_dummy > #max_name nfs_dummy run tellraw @s ["",{"text":"[ Name data too large to merge! Merged data: ","color":"red"},{"score":{"name":"#size1","objective":"nfs_dummy"},"color":"white"},{"text":" Max data: ","color":"red"},{"score":{"name":"#max_name","objective":"nfs_dummy"},"color":"white"},{"text":" ]","color":"red"}]
+execute if entity @s[scores={FormatName=701..702}] if score #size1 nfs_dummy > #max_name nfs_dummy run scoreboard players set @s FormatName 99
+# checks lore max
+execute if entity @s[scores={FormatName=704..705}] run scoreboard players set #lore nfs_dummy 0
+execute if entity @s[scores={FormatName=704..705}] store result score #lore nfs_dummy run data get entity @s Inventory[{Slot:-106b}].tag.display.Lore
+execute if entity @s[scores={FormatName=704..705}] if score #lore nfs_dummy >= #max_lore nfs_dummy run tellraw @s ["",{"text":"[ Lore too large! Max lore allowed: ","color":"red"},{"score":{"name":"#max_lore","objective":"nfs_dummy"},"color":"white"},{"text":" ]","color":"red"}]
+execute if entity @s[scores={FormatName=704..705}] if score #lore nfs_dummy >= #max_lore nfs_dummy run scoreboard players set @s FormatName 99
 # menu
 execute if entity @s[scores={FormatName=1..20}] run function name_formatting:menu/format_name_trigger
 # name formattings
