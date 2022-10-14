@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+			  "entity": "this",
+			  "name": ["",{"nbt":"Items[0].tag.display.Name","block":"~ ~ ~","interpret":"true"},{"nbt":"Items[1].tag.display.Name","block":"~ ~ ~","interpret":"true"}]
+            }
+          ],
+          "name": "minecraft:stone"
+        }
+      ]
+    }
+  ]
+}

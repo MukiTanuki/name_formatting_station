@@ -1,0 +1,16 @@
+[
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:storage",
+            "source": "name_formatting:item_storage"
+        },
+        "ops": [
+            {
+                "source": "second_item.tag.display.Name",
+                "target": "display.Lore",
+                "op": "append"
+            }
+        ]
+    }
+]

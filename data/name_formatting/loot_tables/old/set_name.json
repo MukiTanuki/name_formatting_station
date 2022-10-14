@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+			  "entity": "this",
+			  "name": {"nbt":"ArmorItems[0].tag.NameFormatting.obfuscated","entity":"@e[limit=1,sort=nearest,type=minecraft:armor_stand,tag=set_name]","interpret":"true"}
+            }
+          ],
+          "name": "minecraft:stone"
+        }
+      ]
+    }
+  ]
+}

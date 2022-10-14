@@ -1,0 +1,16 @@
+[
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:storage",
+            "source": "name_formatting:item_data"
+        },
+        "ops": [
+            {
+                "source": "NameFormat",
+                "target": "NameFormat",
+                "op": "replace"
+            }
+        ]
+    }
+]

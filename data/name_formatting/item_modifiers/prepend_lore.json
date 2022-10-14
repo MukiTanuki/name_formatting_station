@@ -1,0 +1,28 @@
+[
+	{
+        "function": "minecraft:set_lore",
+        "entity": "this",
+        "replace": "true",
+		"lore": [
+			{
+				"nbt": "second_item.tag.display.Name", 
+				"storage": "name_formatting:item_storage", 
+				"interpret": "true"
+			}
+		]
+    },
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:storage",
+            "source": "name_formatting:item_storage"
+        },
+        "ops": [
+            {
+                "source": "item.tag.display.Lore[]",
+                "target": "display.Lore",
+                "op": "append"
+            }
+        ]
+    }
+]

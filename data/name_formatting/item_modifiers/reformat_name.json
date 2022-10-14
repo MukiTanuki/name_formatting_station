@@ -1,0 +1,25 @@
+[
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:storage",
+            "source": "name_formatting:item_storage"
+        },
+        "ops": [
+            {
+                "source": "item.tag.NameFormatting",
+                "target": "NameFormatting",
+                "op": "replace"
+            }
+        ]
+    },
+    {
+        "function": "minecraft:set_name",
+        "entity": "this",
+        "name": {
+            "nbt":"item.tag.display.Name",
+            "storage":"name_formatting:item_storage",
+            "interpret":"true"
+        }
+    }
+]

@@ -1,0 +1,13 @@
+[
+	{
+        "function": "minecraft:copy_nbt",
+        "source": "this",
+        "ops": [
+            {
+                "source": "SelectedItem.tag.display.Name",
+                "target": "NameFormatting.ModifiedName",
+                "op": "replace"
+            }
+        ]
+    }
+]

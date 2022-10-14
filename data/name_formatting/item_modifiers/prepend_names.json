@@ -1,0 +1,19 @@
+[
+	{
+        "function": "minecraft:set_name",
+        "entity": "this",
+        "name": [
+			"",
+			{
+				"nbt": "Inventory[{Slot:-106b}].tag.display.Name", 
+				"entity": "@s",
+				"interpret": "true" 
+			},
+			{
+				"nbt": "SelectedItem.tag.display.Name", 
+				"entity": "@s", 
+				"interpret": "true" 
+			}
+		]
+    }
+]
