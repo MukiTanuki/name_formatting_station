@@ -1,0 +1,23 @@
+[
+    {
+        "function": "minecraft:set_lore",
+        "lore": [
+            "Stored Name:",
+            [
+                "",
+                {
+                    "nbt": "SelectedItem.tag.display.Lore[1]",
+                    "entity": "@s",
+                    "interpret": "true"
+                },
+                {
+                    "nbt": "Inventory[{Slot:-106b}].tag.display.Name",
+                    "entity": "@s",
+                    "interpret": "true"
+                }
+            ]
+        ],
+        "entity": "this",
+        "replace": "true"
+    }
+]

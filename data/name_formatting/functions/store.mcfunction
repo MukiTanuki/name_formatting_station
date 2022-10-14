@@ -7,17 +7,30 @@
 #
 data remove storage name_formatting:item_data NameFormat
 #
-execute if data entity @s SelectedItem.tag.NameFormat run data modify storage name_formatting:item_data NameFormat set from entity @s SelectedItem.tag.NameFormat
+# from menu
+execute unless entity @s[predicate=name_formatting:mainhand_book] if data entity @s SelectedItem.tag.NameFormat run data modify storage name_formatting:item_data NameFormat set from entity @s SelectedItem.tag.NameFormat
+# from book
+execute if entity @s[predicate=name_formatting:mainhand_book] if data entity @s Inventory[{Slot:-106b}].tag.NameFormat run data modify storage name_formatting:item_data NameFormat set from entity @s Inventory[{Slot:-106b}].tag.NameFormat
 #
 # Checks if item has been renamed
 #
 scoreboard players set #success nfs_dummy 0
-execute if data storage name_formatting:item_data NameFormat.ModifiedName run data modify storage name_formatting:name_check Name set from entity @s SelectedItem.tag.display.Name
+# from menu
+execute unless entity @s[predicate=name_formatting:mainhand_book] if data storage name_formatting:item_data NameFormat.ModifiedName run data modify storage name_formatting:name_check Name set from entity @s SelectedItem.tag.display.Name
+# from book
+execute if entity @s[predicate=name_formatting:mainhand_book] if data storage name_formatting:item_data NameFormat.ModifiedName run data modify storage name_formatting:name_check Name set from entity @s Inventory[{Slot:-106b}].tag.display.Name
+#
 execute if data storage name_formatting:item_data NameFormat.ModifiedName store success score #success nfs_dummy run data modify storage name_formatting:name_check Name set from storage name_formatting:item_data NameFormat.ModifiedName
 execute if score #success nfs_dummy matches 1.. run data remove storage name_formatting:item_data NameFormat
-execute if score #success nfs_dummy matches 1.. run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s SelectedItem.tag.display.Name
+#from menu
+execute unless entity @s[predicate=name_formatting:mainhand_book] if score #success nfs_dummy matches 1.. run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s SelectedItem.tag.display.Name
+# from book
+execute if entity @s[predicate=name_formatting:mainhand_book] if score #success nfs_dummy matches 1.. run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s Inventory[{Slot:-106b}].tag.display.Name
 #
-execute unless data entity @s SelectedItem.tag.NameFormat run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s SelectedItem.tag.display.Name
+# from menu
+execute unless entity @s[predicate=name_formatting:mainhand_book] unless data entity @s SelectedItem.tag.NameFormat run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s SelectedItem.tag.display.Name
+# from book
+execute if entity @s[predicate=name_formatting:mainhand_book] unless data entity @s Inventory[{Slot:-106b}].tag.NameFormat run data modify storage name_formatting:item_data NameFormat.OriginalName set from entity @s Inventory[{Slot:-106b}].tag.display.Name
 
 #data remove storage name_formatting:item_data item
 #data remove storage name_formatting:item_data temp_item

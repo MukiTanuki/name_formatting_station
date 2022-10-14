@@ -1,0 +1,25 @@
+[
+    {
+        "function": "minecraft:set_lore",
+        "lore": [
+            {
+                "nbt": "SelectedItem.tag.display.Lore[1]",
+                "entity": "@s",
+                "interpret": "true"
+            }
+        ],
+        "entity": "this",
+        "replace": "true"
+    },
+    {
+        "function": "minecraft:copy_nbt",
+        "source": "this",
+        "ops": [
+            {
+                "source": "Inventory[{Slot:-106b}].tag.display.Lore[]",
+                "target": "display.Lore",
+                "op": "append"
+            }
+        ]
+    }
+]

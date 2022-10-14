@@ -1,0 +1,11 @@
+[
+    {
+        "function": "minecraft:set_lore",
+        "lore": [
+            "Stored Name:",
+            ""
+        ],
+        "entity": "this",
+        "replace": "true"
+    }
+]

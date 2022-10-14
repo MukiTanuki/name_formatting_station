@@ -7,6 +7,8 @@ scoreboard objectives add nfs_dummy dummy
 scoreboard objectives add nfs_xp level
 # menu disable
 execute unless score #disable_menu nfs_dummy matches 0..1 run scoreboard players set #disable_menu nfs_dummy 0
+# book enabled
+execute unless score #enable_book nfs_dummy matches 0..1 run scoreboard players set #enable_book nfs_dummy 1
 # minimum level to format name from menu
 execute unless score #min_level nfs_dummy matches 0.. run scoreboard players set #min_level nfs_dummy 1
 # max name data for merging

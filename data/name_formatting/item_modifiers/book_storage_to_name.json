@@ -1,0 +1,28 @@
+[
+    {
+        "function": "minecraft:set_name",
+        "entity": "this",
+        "name": [
+            "",
+            {
+                "nbt": "SelectedItem.tag.display.Lore[1]",
+                "entity": "@s",
+                "interpret": "true"
+            }
+        ]
+    },
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:storage",
+            "source": "name_formatting:item_data"
+        },
+        "ops": [
+            {
+                "source": "NameFormat",
+                "target": "NameFormat",
+                "op": "replace"
+            }
+        ]
+    }
+]
