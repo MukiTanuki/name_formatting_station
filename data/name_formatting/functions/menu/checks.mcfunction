@@ -12,6 +12,12 @@ execute if entity @s[scores={FormatName=700..707}] if score #enable_book nfs_dum
 # checks for book in mainhand and offhand
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run tellraw @s {"text":"[ Cannot format NFS books! ]","color":"red"}
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run scoreboard players set @s FormatName 99
+# checks if name is merged (mainhand)
+execute unless entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] SelectedItem.tag.NameFormat.merged run tellraw @s {"text":"[ Cannot format merged name! ]","color":"red"}
+execute unless entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] SelectedItem.tag.NameFormat.merged run scoreboard players set @s FormatName 99
+# checks if name is merged (offhand)
+execute if entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] Inventory[{Slot:-106b}].tag.NameFormat.merged run tellraw @s {"text":"[ Cannot format merged name! ]","color":"red"}
+execute if entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] Inventory[{Slot:-106b}].tag.NameFormat.merged run scoreboard players set @s FormatName 99
 # disabled functions when book in mainhand
 execute if entity @s[predicate=name_formatting:mainhand_book,scores={FormatName=500..699}] run tellraw @s {"text":"[ Can't do that with NFS books! ]","color":"red"}
 execute if entity @s[predicate=name_formatting:mainhand_book,scores={FormatName=500..699}] run scoreboard players set @s FormatName 99
@@ -38,6 +44,9 @@ execute if entity @s[scores={FormatName=500..501}] store result score #size2 nfs
 execute if entity @s[scores={FormatName=500..501}] run scoreboard players operation #size1 nfs_dummy += #size2 nfs_dummy
 execute if entity @s[scores={FormatName=500..501}] if score #size1 nfs_dummy > #max_name nfs_dummy run tellraw @s ["",{"text":"[ Name data too large to merge! Merged data: ","color":"red"},{"score":{"name":"#size1","objective":"nfs_dummy"},"color":"white"},{"text":" Max data: ","color":"red"},{"score":{"name":"#max_name","objective":"nfs_dummy"},"color":"white"},{"text":" ]","color":"red"}]
 execute if entity @s[scores={FormatName=500..501}] if score #size1 nfs_dummy > #max_name nfs_dummy run scoreboard players set @s FormatName 99
+# checks for lore+merging item
+execute if entity @s[scores={FormatName=500..699}] unless data entity @s SelectedItem.id run tellraw @s {"text":"[ Requires item in mainhand! ]","color":"red"}
+execute if entity @s[scores={FormatName=500..699}] unless data entity @s SelectedItem.id run scoreboard players set @s FormatName 99
 # checks lore max
 execute if entity @s[scores={FormatName=600..601}] run scoreboard players set #lore nfs_dummy 0
 execute if entity @s[scores={FormatName=600..601}] store result score #lore nfs_dummy run data get entity @s SelectedItem.tag.display.Lore

@@ -2,7 +2,7 @@
    "pack": {
       "_author": "MukiTanuki",
 	  "_version": 2.0,
-      "pack_format": 7,
+      "pack_format": 10,
       "description": "Name Formatting Station"
    }
 }
