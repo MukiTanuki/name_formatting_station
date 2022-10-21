@@ -12,12 +12,8 @@ execute if entity @s[scores={FormatName=700..707}] if score #enable_book nfs_dum
 # checks for book in mainhand and offhand
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run tellraw @s {"text":"[ Cannot format NFS books! ]","color":"red"}
 execute if entity @s[predicate=name_formatting:mainhand_book,predicate=name_formatting:offhand_book] run scoreboard players set @s FormatName 99
-# checks if name is merged (mainhand)
-execute unless entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] SelectedItem.tag.NameFormat.merged run tellraw @s {"text":"[ Cannot format merged name! ]","color":"red"}
-execute unless entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] SelectedItem.tag.NameFormat.merged run scoreboard players set @s FormatName 99
-# checks if name is merged (offhand)
-execute if entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] Inventory[{Slot:-106b}].tag.NameFormat.merged run tellraw @s {"text":"[ Cannot format merged name! ]","color":"red"}
-execute if entity @s[predicate=name_formatting:mainhand_book] if data entity @s[scores={FormatName=100..499}] Inventory[{Slot:-106b}].tag.NameFormat.merged run scoreboard players set @s FormatName 99
+# checks if name is merged
+execute if entity @s[scores={FormatName=100..499}] run function name_formatting:menu/check_merged
 # disabled functions when book in mainhand
 execute if entity @s[predicate=name_formatting:mainhand_book,scores={FormatName=500..699}] run tellraw @s {"text":"[ Can't do that with NFS books! ]","color":"red"}
 execute if entity @s[predicate=name_formatting:mainhand_book,scores={FormatName=500..699}] run scoreboard players set @s FormatName 99
