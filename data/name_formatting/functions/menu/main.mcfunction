@@ -8,8 +8,8 @@
 function name_formatting:menu/styles
 function name_formatting:menu/colors
 function name_formatting:menu/fonts
-function name_formatting:menu/revert
 function name_formatting:menu/merging
 function name_formatting:menu/lore
+function name_formatting:menu/revert
 # store
 function name_formatting:store

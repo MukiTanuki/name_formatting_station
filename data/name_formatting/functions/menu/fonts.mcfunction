@@ -6,9 +6,10 @@
 
 # store
 function name_formatting:store
+data remove storage name_formatting:item_data NameFormat.font
 function name_formatting:formulate
 
-tellraw @s [{"color":"gold","text":""},{"text":"[minecraft:uniform]","clickEvent": { "action": "run_command", "value": "/trigger FormatName set 300" }}," ",{"text":"[minecraft:default]","clickEvent": { "action": "run_command", "value": "/trigger FormatName set 301" }},"\n",{"text":"[minecraft:alt]","clickEvent": { "action": "run_command", "value": "/trigger FormatName set 302" }}," ",{"text":"[minecraft:illageralt]","clickEvent": { "action": "run_command", "value": "/trigger FormatName set 303" }}]
+tellraw @s ["",{"text":"[default]", "color":"yellow", "clickEvent": { "action": "run_command", "value": "/trigger FormatName set 300" }}," ",{"nbt": "NameFormat.font", "storage": "name_formatting:item_format", "interpret": "true", "font": "minecraft:default" }," ",{"text":"[uniform]", "color":"yellow", "clickEvent": { "action": "run_command", "value": "/trigger FormatName set 301" }}," ",{"nbt": "NameFormat.font", "storage": "name_formatting:item_format", "interpret": "true", "font": "minecraft:uniform" }," ",{"text":"[alt]", "color":"yellow", "clickEvent": { "action": "run_command", "value": "/trigger FormatName set 302" }}," ",{"nbt": "NameFormat.font", "storage": "name_formatting:item_format", "interpret": "true", "font": "minecraft:alt" }," ",{"text":"[illageralt]", "color":"yellow", "clickEvent": { "action": "run_command", "value": "/trigger FormatName set 303" }}," ",{"nbt": "NameFormat.font", "storage": "name_formatting:item_format", "interpret": "true", "font": "minecraft:illageralt" }]
 
 # minecraft:default
 #data modify storage name_formatting:item_format NameFormat.font set value '{"nbt":"NameFormat.obfuscated","storage":"name_formatting:item_format","interpret":"true","font":"minecraft:default"}'
