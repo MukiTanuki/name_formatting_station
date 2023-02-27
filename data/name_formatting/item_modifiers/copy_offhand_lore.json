@@ -1,0 +1,16 @@
+[
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:context",
+            "target": "this"
+        },
+        "ops": [
+            {
+                "source": "Inventory[{Slot:-106b}].tag.display.Lore",
+                "target": "display.Lore",
+                "op": "replace"
+            }
+        ]
+    }
+]

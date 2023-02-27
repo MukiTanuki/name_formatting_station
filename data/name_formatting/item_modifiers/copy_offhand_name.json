@@ -1,0 +1,21 @@
+[
+    {
+        "function": "minecraft:copy_nbt",
+        "source": {
+            "type": "minecraft:context",
+            "target": "this"
+        },
+        "ops": [
+            {
+                "source": "Inventory[{Slot:-106b}].tag.NameFormat",
+                "target": "NameFormat",
+                "op": "replace"
+            },
+            {
+                "source": "Inventory[{Slot:-106b}].tag.display.Name",
+                "target": "display.Name",
+                "op": "replace"
+            }
+        ]
+    }
+]
