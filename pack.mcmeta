@@ -1,8 +1,23 @@
 {
    "pack": {
       "_author": "MukiTanuki",
-	  "_version": 2.0,
-      "pack_format": 10,
+	   "_version": 2.1,
+      "pack_format": 18,
+		"supported_formats": {
+			"min_inclusive": 18,
+			"max_inclusive": 26
+		},
       "description": "Name Formatting Station"
-   }
+   },
+	"overlays": {
+		"entries": [
+			{
+				"directory": "1_20_3",
+				"formats": {
+					"min_inclusive": 19,
+					"max_inclusive": 9999999
+				}
+			}
+		]
+	}
 }
