@@ -1,0 +1,16 @@
+[
+    {
+        "function": "minecraft:copy_custom_data",
+        "source": {
+            "type": "minecraft:context",
+            "target": "this"
+        },
+        "ops": [
+            {
+                "source": "SelectedItem.components.minecraft:custom_name",
+                "target": "NameFormat.ModifiedName",
+                "op": "replace"
+            }
+        ]
+    }
+]
