@@ -37,6 +37,10 @@ function name_formatting:store
 execute unless data storage name_formatting:item_data NameFormat run tellraw @s {"text": "Couldn't store name data from this item!", "color": "red"}
 execute unless data storage name_formatting:item_data NameFormat run return fail
 #
+# Checks if color value has overflow
+#
+execute if score @s CustomNameColor matches 16777216.. run scoreboard players set @s CustomNameColor 16777215
+#
 # reset data
 #
 data remove storage name_formatting:custom_color color1

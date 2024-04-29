@@ -14,5 +14,5 @@ execute as @a[scores={CustomNameColor=0..}] run function name_formatting:format/
 
 # re-enables trigger
 scoreboard players enable @a FormatName
-scoreboard players set @a[scores={CustomNameColor=0..}] CustomNameColor -1
 scoreboard players enable @a CustomNameColor
+scoreboard players set @a[scores={CustomNameColor=0..}] CustomNameColor -1
