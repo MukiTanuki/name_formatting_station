@@ -14,11 +14,16 @@ execute unless score #min_level nfs_dummy matches 0.. run scoreboard players set
 execute unless score #max_name nfs_dummy matches 0.. run scoreboard players set #max_name nfs_dummy 500
 # max lore size
 execute unless score #max_lore nfs_dummy matches 0.. run scoreboard players set #max_lore nfs_dummy 8
+# 16
+scoreboard players set #16 nfs_dummy 16
 
 # Sets up name formatting data into storage
 data remove storage name_formatting:base_format NameFormat
 #data modify storage name_formatting:base_format {} merge value {NameFormat: {color:'{"nbt":"NameFormat.OriginalName","storage":"name_formatting:item_format","interpret":"true"}', italic:'{"nbt":"NameFormat.color","storage":"name_formatting:item_format","interpret":"true"}', underlined:'{"nbt":"NameFormat.italic","storage":"name_formatting:item_format","interpret":"true"}', bold:'{"nbt":"NameFormat.underlined","storage":"name_formatting:item_format","interpret":"true"}', strikethrough:'{"nbt":"NameFormat.bold","storage":"name_formatting:item_format","interpret":"true"}', obfuscated:'{"nbt":"NameFormat.strikethrough","storage":"name_formatting:item_format","interpret":"true"}', font:'{"nbt":"NameFormat.obfuscated","storage":"name_formatting:item_format","interpret":"true"}'} }
 
-# Trigger for name formatting menu
+# Trigger for name formatting menu and custom colors
 scoreboard objectives add FormatName trigger
 scoreboard players enable @a FormatName
+scoreboard objectives add CustomNameColor trigger
+scoreboard players set @s CustomNameColor -1
+scoreboard players enable @a CustomNameColor

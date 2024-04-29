@@ -31,8 +31,8 @@ execute unless score @s[scores={FormatName=100..799}] nfs_xp >= #min_level nfs_d
 execute unless score @s[scores={FormatName=100..799}] nfs_xp >= #min_level nfs_dummy run scoreboard players set @s FormatName 99
 
 # checks for merged item in offhand
-execute if items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{merged:1}}] run tellraw @s ["",{"text":"[ Requires a formatted item in the offhand!","color":"red"},{"text":" ]","color":"red"}]
-execute if items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{merged:1}}] run scoreboard players set @s FormatName 99
+execute if items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{merged:1b}}] run tellraw @s ["",{"text":"[ Requires a formatted item in the offhand!","color":"red"},{"text":" ]","color":"red"}]
+execute if items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{merged:1b}}] run scoreboard players set @s FormatName 99
 # checks for formatted item in offhand
 execute unless items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{}}] run tellraw @s ["",{"text":"[ Requires a formatted item in the offhand!","color":"red"},{"text":" ]","color":"red"}]
 execute unless items entity @s[scores={FormatName=511}] weapon.offhand *[minecraft:custom_data~{NameFormat:{}}] run scoreboard players set @s FormatName 99

@@ -11,11 +11,6 @@ function name_formatting:store
 execute unless data storage name_formatting:item_data NameFormat run tellraw @s {"text": "Couldn't store name data from this item!", "color": "red"}
 execute unless data storage name_formatting:item_data NameFormat run return fail
 #
-# Checks for error in nbt data
-#
-execute unless data storage name_formatting:item_data NameFormat run tellraw @s {"text": "Couldn't store name data from this item!", "color": "red"}
-execute unless data storage name_formatting:item_data NameFormat run return fail
-#
 # fonts
 #
 execute as @s[scores={FormatName=300}] run function name_formatting:traverse_name \

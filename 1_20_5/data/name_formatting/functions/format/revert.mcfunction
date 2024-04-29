@@ -53,8 +53,5 @@ function name_formatting:traverse_name \
         function: 'name_formatting:format/remove_data',\
         extra_data: 'font',\
     }
-# formulate
-#function name_formatting:formulate
-# set formatting
-#function name_formatting:format/set
+
 function name_formatting:set_name with storage name_formatting:item_data {}

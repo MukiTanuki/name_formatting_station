@@ -12,4 +12,4 @@ function name_formatting:menu/lore
 function name_formatting:menu/copy
 function name_formatting:menu/revert
 # store
-function name_formatting:store
+#function name_formatting:store
