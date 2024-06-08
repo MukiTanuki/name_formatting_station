@@ -1,0 +1,25 @@
+[
+    {
+        "function": "minecraft:copy_custom_data",
+        "source": {
+            "type": "minecraft:context",
+            "target": "this"
+        },
+        "ops": [
+            {
+                "source": "Inventory[{Slot:-106b}].components.minecraft:custom_data.NameFormat",
+                "target": "NameFormat",
+                "op": "replace"
+            }
+        ]
+    },
+    {
+        "function": "minecraft:set_name",
+        "entity": "this",
+        "name": {
+            "nbt": "Inventory[{Slot:-106b}].components.minecraft:custom_name", 
+            "entity": "@s",
+            "interpret": true 
+        }
+    }
+]
