@@ -1,0 +1,17 @@
+[
+    
+    {
+        "function": "minecraft:set_lore",
+        "entity": "this",
+        "mode": "insert",
+        "offset":0,
+        "lore": [
+            {
+				"nbt": "equipment.offhand.components.minecraft:custom_name", 
+				"entity": "@s",
+				"interpret": true 
+			}
+        ]
+    }
+    
+]
