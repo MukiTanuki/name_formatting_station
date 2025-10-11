@@ -5,14 +5,18 @@
       "pack_format": 18,
 		"supported_formats": {
 			"min_inclusive": 18,
-			"max_inclusive": 48
+			"max_inclusive": 88
 		},
+	  "min_format": 18,
+		"max_format": 88,
       "description": "Name Formatting Station"
    },
 	"overlays": {
 		"entries": [
 			{
 				"directory": "1_20_3",
+				"min_format": 19,
+				"max_format": 9999999,
 				"formats": {
 					"min_inclusive": 19,
 					"max_inclusive": 9999999
@@ -20,6 +24,8 @@
 			},
 			{
 				"directory": "1_20_5",
+				"min_format": 41,
+				"max_format": 9999999,
 				"formats": {
 					"min_inclusive": 41,
 					"max_inclusive": 9999999
@@ -27,6 +33,8 @@
 			},
 			{
 				"directory": "1_21_0",
+				"min_format": 48,
+				"max_format": 9999999,
 				"formats": {
 					"min_inclusive": 48,
 					"max_inclusive": 9999999
@@ -34,6 +42,8 @@
 			},
 			{
 				"directory": "1_21_5",
+				"min_format": 71,
+				"max_format": 9999999,
 				"formats": {
 					"min_inclusive": 71,
 					"max_inclusive": 9999999
