@@ -13,9 +13,9 @@ execute if entity @s[scores={FormatName=1..20}] if score #disable_menu nfs_dummy
     ]
 execute if entity @s[scores={FormatName=1..20}] if score #disable_menu nfs_dummy matches 1 run scoreboard players set @s FormatName 99
 
-# checks if name is merged
-execute if entity @s[scores={FormatName=100..499}] run function name_formatting:menu/check_merged
-execute if entity @s[scores={FormatName=511}] run function name_formatting:menu/check_merged
+# checks if name is merged (don't need this anymore)
+#execute if entity @s[scores={FormatName=100..499}] run function name_formatting:menu/check_merged
+#execute if entity @s[scores={FormatName=511}] run function name_formatting:menu/check_merged
 
 # checks for named item in mainhand
 execute unless items entity @s[scores={FormatName=100..501}] weapon.mainhand *[minecraft:custom_name] run tellraw @s {"text":"[ Requires a named item in the mainhand! ]","color":"red"}

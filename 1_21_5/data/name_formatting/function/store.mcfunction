@@ -18,7 +18,7 @@ execute unless items entity @s weapon.mainhand *[minecraft:custom_name] run retu
 # store
 data modify storage name_formatting:item_data custom_name set from entity @s SelectedItem.components.minecraft:custom_name
 # check if modified
-function name_formatting:helpers/check_if_modified with storage name_formatting:item_data {}
+#function name_formatting:helpers/check_if_modified with storage name_formatting:item_data {}
 # convert json to nbt - don't need any more
 #function name_formatting:json_to_nbt with storage name_formatting:item_data {}
 #

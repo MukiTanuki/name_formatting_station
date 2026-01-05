@@ -1,0 +1,11 @@
+[
+    {
+        "function": "minecraft:set_name",
+        "entity": "this",
+        "name": {
+            "nbt":"NameFormat",
+            "storage":"name_formatting:item_data",
+            "interpret":true
+        }
+    }
+]
